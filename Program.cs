@@ -22,6 +22,7 @@ namespace Neural
             Console.WriteLine("+--- Outer product tests ---+");
             // tests on static inversion (static -1 scalar multiplication)
             Console.WriteLine("+--- Matrix inversion ---+");
+            LAlib.Matrix.invert(test1).PrintMatrix();
             // tests on static transposition
             Console.WriteLine("+--- Matrix transposition ---+");
         }

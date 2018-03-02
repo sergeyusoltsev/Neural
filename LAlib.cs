@@ -5,10 +5,6 @@ namespace LAlib { //Stands for Linear Algebra library
         public float[,] MatrixData; // Local version of matrix to manipulate
         public Matrix(float[,] data) {
             MatrixData = data;
-            // Constructor class which rolls trough the data in the matrix
-            // representing it in nice and comfortable way, calling the method Printme();
-            Console.WriteLine("Matrix initialized!");
-            PrintMatrix();
         }
         public void PrintMatrix() {
             // Method just to print the matrix in a nice way
@@ -35,8 +31,6 @@ namespace LAlib { //Stands for Linear Algebra library
                         MatrixData[i,j] += operand.MatrixData[i,j];
                     }
                 }
-                Console.WriteLine("Addition result:");
-                PrintMatrix();
             }
             else
             {
@@ -53,10 +47,41 @@ namespace LAlib { //Stands for Linear Algebra library
                     MatrixData[i,j] += operand;
                 }
             }
-            Console.WriteLine("Addition result:");
-            PrintMatrix();
         }
-
+                public void mul(Matrix operand) {
+            // Check opposite dimensions euqivalence!
+            if (operand.MatrixData.GetLength(0) == MatrixData.GetLength(1) || operand.MatrixData.GetLength(1) == MatrixData.GetLength(0))
+            {
+                // Multiplication of the matricies
+                for (int i = 0; i < MatrixData.GetLength(0); i++)
+                {
+                    for (int j = 0; j < MatrixData.GetLength(1); j++)
+                    {
+                        MatrixData[i,j] += operand.MatrixData[i,j];
+                    }
+                }
+            }
+            else
+            {
+                // Handler for inconsistent operands dimensions
+                Console.WriteLine("Multiplication failed due to matrix opposite dimensions mismatch");
+            }
+        }
+        public void mul(float operand) {
+            // Method mul being overloaded with elementwise float multiplication
+            for (int i = 0; i < MatrixData.GetLength(0); i++)
+            {
+                for (int j = 0; j < MatrixData.GetLength(1); j++)
+                {
+                    MatrixData[i,j] *= operand;
+                }
+            }
+        }
+        public static Matrix invert(Matrix operand) {
+            // static method returning -1 multiplied matrix
+            operand.mul(-1f);
+            return operand;
+        }
     }
 }
 
