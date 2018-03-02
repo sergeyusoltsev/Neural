@@ -1,0 +1,10 @@
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/bin/Debug/netcoreapp2.0/Neural.deps.json
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/bin/Debug/netcoreapp2.0/Neural.runtimeconfig.json
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/bin/Debug/netcoreapp2.0/Neural.runtimeconfig.dev.json
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/bin/Debug/netcoreapp2.0/Neural.dll
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/bin/Debug/netcoreapp2.0/Neural.pdb
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/obj/Debug/netcoreapp2.0/Neural.csproj.CoreCompileInputs.cache
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/obj/Debug/netcoreapp2.0/Neural.AssemblyInfoInputs.cache
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/obj/Debug/netcoreapp2.0/Neural.AssemblyInfo.cs
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/obj/Debug/netcoreapp2.0/Neural.dll
+/home/sergeyusoltsev/Desktop/CSprojs/Neural/obj/Debug/netcoreapp2.0/Neural.pdb
