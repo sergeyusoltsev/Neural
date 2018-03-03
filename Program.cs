@@ -1,7 +1,8 @@
 ﻿using System;
 using LAlib;
+using Lneural;
 
-namespace Neural
+namespace Program
 {
     class Program
     {
