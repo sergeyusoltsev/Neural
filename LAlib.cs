@@ -50,11 +50,11 @@ namespace LAlib { //Stands for Linear Algebra library
         }
         public void mul(Matrix operand) {
             // Check opposite dimensions euqivalence!
-            if (operand.MatrixData.GetLength(0) == MatrixData.GetLength(1))
+            if (MatrixData.GetLength(1) == operand.MatrixData.GetLength(0))
             {
                 // Multiplication of the matricies
-                int ni = MatrixData.GetLength(0);                    // number of rows in the caller
-                int nj = operand.MatrixData.GetLength(1);            // number of columns in operand
+                int ni = MatrixData.GetLength(1);                    // number of rows in the caller
+                int nj = operand.MatrixData.GetLength(0);            // number of columns in operand
                 Matrix resmatr = new Matrix(new float[ni,nj]);
                 for (int i = 0; i < ni; i++)
                 {
@@ -88,6 +88,18 @@ namespace LAlib { //Stands for Linear Algebra library
             // static method returning -1 multiplied matrix
             operand.mul(-1f);
             return operand;
+        }
+        public static Matrix transpose(Matrix operand) {
+            Matrix transposed = new Matrix(new float[operand.MatrixData.GetLength(1), operand.MatrixData.GetLength(0)]);
+            // Method add being overloaded with elementwise float addition
+            for (int i = 0; i < transposed.MatrixData.GetLength(0); i++)
+            {
+                for (int j = 0; j < transposed.MatrixData.GetLength(1); j++)
+                {
+                    transposed.MatrixData[i,j] = operand.MatrixData[j,i];
+                }
+            }
+            return transposed;
         }
     }
 }
