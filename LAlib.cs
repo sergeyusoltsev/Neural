@@ -48,23 +48,30 @@ namespace LAlib { //Stands for Linear Algebra library
                 }
             }
         }
-                public void mul(Matrix operand) {
+        public void mul(Matrix operand) {
             // Check opposite dimensions euqivalence!
-            if (operand.MatrixData.GetLength(0) == MatrixData.GetLength(1) || operand.MatrixData.GetLength(1) == MatrixData.GetLength(0))
+            if (operand.MatrixData.GetLength(0) == MatrixData.GetLength(1))
             {
                 // Multiplication of the matricies
-                for (int i = 0; i < MatrixData.GetLength(0); i++)
+                int ni = MatrixData.GetLength(0);                    // number of rows in the caller
+                int nj = operand.MatrixData.GetLength(1);            // number of columns in operand
+                Matrix resmatr = new Matrix(new float[ni,nj]);
+                for (int i = 0; i < ni; i++)
                 {
-                    for (int j = 0; j < MatrixData.GetLength(1); j++)
+                    for (int j = 0; j < nj; j++)
                     {
-                        MatrixData[i,j] += operand.MatrixData[i,j];
+                        for (int k = 0; k < ni; k++)
+                        {
+                            resmatr.MatrixData[i,j] += MatrixData[i,k] * operand.MatrixData[k,j];
+                        }
                     }
                 }
+                MatrixData = resmatr.MatrixData;
             }
             else
             {
                 // Handler for inconsistent operands dimensions
-                Console.WriteLine("Multiplication failed due to matrix opposite dimensions mismatch");
+                Console.WriteLine("Multiplication failed due to matrix opposite dimensions mismatch, maybe order is mixed?");
             }
         }
         public void mul(float operand) {
